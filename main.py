@@ -1,4 +1,4 @@
-from ezCrypt_src import EzCrypt
+import ezCrypt_src as eC
 from sys import argv
 
 
@@ -36,21 +36,21 @@ def main():
         print("Not enough arguments given!")
         help()
         quit()
-    file_data, key = EzCrypt.load(flags["-f"], flags["-k"])
+    file_data, key = eC.load(flags["-f"], flags["-k"])
 
     if flags["-v"]:
         print("Using Key : %s" % key.decode())
 
     if flags["-m"] == "encrypt":
-        result = EzCrypt.encrypt(file_data, key)
+        result = eC.encrypt(file_data, key)
         if flags["-o"]:
-            EzCrypt.save(flags["-o"], result, key)
+            eC.save(flags["-o"], result, key)
         else:
-            EzCrypt.save(flags["-f"], result, key)
+            eC.save(flags["-f"], result, key)
 
     elif flags["-m"] == "decrypt":
         if flags["-k"]:
-            result = EzCrypt.decrypt(file_data, key)
+            result = eC.EzCrypt.decrypt(file_data, key)
         else:
             print("Missing Key!")
             quit()
