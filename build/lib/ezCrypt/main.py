@@ -1,4 +1,4 @@
-import ezCrypt.ezCrypt_src as eC
+import ezCrypt_src as eC
 from sys import argv
 
 
